@@ -1,26 +1,32 @@
 //state
 
-let sum;
 
+let sum = 0
 
 //cached elems
-let displayEl = document.querySelector('span');
+let displayEl = document.getElementById('total');
 let input = document.getElementById('stat');
+let addButton = document.getElementById('add');
+let subButton = document.getElementById('sub');
+// console.log(input)
 
 // event listeners
-document.querySelector('button')
-    addEventListener('click', function() {
-       
-        displayEl += parseFloat(input.value) + parseFloat(displayEl.value);
-        
- render();
+addButton.addEventListener('click', function() {
+        sum += parseInt(input.value);
+        // displayEl.innerText = sum
+    render();
 });
-document.querySelector('button', id="sub")
-    addEventListener('click', function() {
 
-        sum -= parseFloat(input.value) - parseFloat(displayEl.value);
 
+
+subButton.addEventListener('click', function() {
+        sum -= parseInt(input.value);   
+    
+        // console.log(sum)
+        // console.log(input.value)
+  
    render();
+
 });
     //add button adds
     //subtract button subs
@@ -29,17 +35,18 @@ document.querySelector('button', id="sub")
 
 // functions
 
+
 function init() {
-    sum = 0;
-    displayEl = 0;
-    input = 1;
+    displayEl.innerHTML = 0
+    input.value = 1
     render();
 
 }
 
 
 function render() {
-    displayEl = sum;
+    //change the sum here
+    displayEl.innerHTML = sum;
 
 
 }
